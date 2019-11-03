@@ -1,5 +1,5 @@
 language: java
 jdk:
-- oraclejdk9
-# git strips the wrapper jar file so we have to force its download during the build
+  - oraclejdk8
 
+script: mvn clean install -DskipTests
