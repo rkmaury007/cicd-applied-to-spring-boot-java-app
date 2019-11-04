@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.0.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cicd</groupId>
 	<artifactId>cicd-applied-to-spring-boot-java-app</artifactId>
@@ -43,18 +43,18 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-				<plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<!-- spotify's dockerfile-maven-plugin -->
-			
+
 			<plugin>
-	            <groupId>com.spotify</groupId>
-	            <artifactId>dockerfile-maven-plugin</artifactId>
-	            <version>1.4.9</version>
-	            <executions>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.9</version>
+				<executions>
 					<execution>
 						<id>default</id>
 						<phase>install</phase>
@@ -64,80 +64,80 @@
 						</goals>
 					</execution>
 				</executions>
-	            <configuration>
-	                <repository>${docker.image.prefix}/${project.artifactId}</repository>
-			
-	                <serverId>index.docker.io</serverId>
-	      		<registryUrl>https://index.docker.io:443/v1/</registryUrl>
-	            </configuration>
-        	</plugin>
-        	
-        	<!-- maven-dependency-plugin useful for creating docker image -->
-        	
-        	<plugin>
-		     
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-dependency-plugin</artifactId>
-			    <executions>
-			        <execution>
-			            <id>unpack</id>
-			            <phase>package</phase>
-			            <goals>
-			                <goal>unpack</goal>
-			            </goals>
-			            <configuration>
-			                <artifactItems>
-			                    <artifactItem>
-			                        <groupId>${project.groupId}</groupId>
-			                        <artifactId>${project.artifactId}</artifactId>
-			                        <version>${project.version}</version>
-			                    </artifactItem>
-			                </artifactItems>
-			            </configuration>
-			        </execution>
-				
-	 
-			    </executions>
-		    
-       		</plugin>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+
+					<serverId>index.docker.io</serverId>
+					<registryUrl>https://index.docker.io:443/v1/</registryUrl>
+				</configuration>
+			</plugin>
+
+			<!-- maven-dependency-plugin useful for creating docker image -->
+
+			<plugin>
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+
+
+				</executions>
+
+			</plugin>
 		</plugins>
 	</build>
 	<reporting>
-  
-  		<plugins>
-  		
-  			<plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-project-info-reports-plugin</artifactId>
-	            <version>3.0.0</version>
-	            <reportSets>
-	                <reportSet>
-	                    <reports>
-	                        <report>index</report>
-	                        <report>licenses</report>
-	                        <report>dependency-info</report>
-	                        <report>ci-management</report>
-	                        <report>dependencies</report>
-	                        <report>dependency-convergence</report>
-	                        <report>dependency-management</report>
-	                        <report>distribution-management</report>
-	                        <report>help</report>
-	                        <report>issue-management</report>
-	                        <report>mailing-lists</report>
-	                        <report>modules</report>
-	                        <report>plugin-management</report>
-	                        <report>plugins</report>
-	                        <report>team</report>
-	                        <report>scm</report>
-	                        <report>summary</report>
-	                        
-	                        
-	                    </reports>
-	                </reportSet>
-	            </reportSets>
-	        </plugin>
-  		
-  		</plugins>
-  
-  </reporting>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+							<report>licenses</report>
+							<report>dependency-info</report>
+							<report>ci-management</report>
+							<report>dependencies</report>
+							<report>dependency-convergence</report>
+							<report>dependency-management</report>
+							<report>distribution-management</report>
+							<report>help</report>
+							<report>issue-management</report>
+							<report>mailing-lists</report>
+							<report>modules</report>
+							<report>plugin-management</report>
+							<report>plugins</report>
+							<report>team</report>
+							<report>scm</report>
+							<report>summary</report>
+
+
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+		</plugins>
+
+	</reporting>
 </project>
