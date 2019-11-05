@@ -16,6 +16,23 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<!-- property useful for  spotify's dockerfile-maven-plugin -->
+		
+		<!-- Instead of "fanjups", please add your Docker Hub username -->
+		
+		<docker.image.prefix>rkmaurya2012</docker.image.prefix>
+		
+		<!--Not adding artifacts to remote repository-->
+		
+		<maven.deploy.skip>true</maven.deploy.skip>
+		
+		<!-- GitHub OAuth token & server -->
+		<github.global.server>github</github.global.server>
+        <github.global.oauth2Token>${env.GITHUB_OAUTH_TOKEN}</github.global.oauth2Token>
+        <full-artifact-name>target/${project.artifactId}-${project.version}.jar</full-artifact-name>
 	</properties>
 
 	<dependencies>
